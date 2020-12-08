@@ -1,0 +1,1 @@
+export { JoinedMembersPage } from './JoinedMembersPage';
