@@ -2,7 +2,6 @@ import React from 'react'
 import { Member } from '../../types';
 import { JOINED_MEMBERS } from '../../mocks/members'
 import { MemberList } from '../../components/MemberList'
-import { MemberListItem } from '../../components/MemberList/MemberListItem';
 
 const currentUser = { id: 'member1' };
 const PLACEHOLDER = "https://avatars.dicebear.com/api/initials/test.svg";
@@ -26,7 +25,7 @@ export class JoinedMembersPage extends React.Component {
       <MemberList>
         {
           JOINED_MEMBERS.map(member => (
-            <MemberListItem
+            <MemberList.ListItem
               key={member.id}
               menuChildren={this.renderMenuChildren(member)}>
                 <img
@@ -39,7 +38,7 @@ export class JoinedMembersPage extends React.Component {
                   <div>{member.email}</div>	
                 </div>
                 {member.role === "guest" && <div>ゲスト</div>}
-            </MemberListItem>
+            </MemberList.ListItem>
           ))
         }
       </MemberList>

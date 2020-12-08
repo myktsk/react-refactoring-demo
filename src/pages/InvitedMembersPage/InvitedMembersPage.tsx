@@ -1,7 +1,6 @@
 import React from 'react'
 import { INVITATIONS } from '../../mocks/invitations'
 import { MemberList } from '../../components/MemberList'
-import { MemberListItem } from '../../components/MemberList/MemberListItem'
 
 const PLACEHOLDER = "https://avatars.dicebear.com/api/initials/test.svg";
 export class InvitedMembersPage extends React.Component {
@@ -17,7 +16,7 @@ export class InvitedMembersPage extends React.Component {
       <MemberList>
         {
           INVITATIONS.map(member => (
-            <MemberListItem
+            <MemberList.ListItem
               key={member.id}
               menuChildren={this.renderMenuChildren()}>
               <img
@@ -26,7 +25,7 @@ export class InvitedMembersPage extends React.Component {
                   alt="avatar" 
                 />
               <div>{member.email}</div>
-            </MemberListItem>
+            </MemberList.ListItem>
           ))
         }
       </MemberList>
