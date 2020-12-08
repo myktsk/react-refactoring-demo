@@ -1,32 +1,16 @@
 import React from 'react'
-import { BadMemberType } from '../MemberList'
 import { Menu } from './Menu'
 
 type Props = {
-  member: BadMemberType
+  children: React.ReactNode;
+  menuChildren?: React.ReactNode;
 }
 
-const PLACEHOLDER = "https://avatars.dicebear.com/api/initials/test.svg";
-
-export const MemberListItem:React.FC<Props> = ({ children, member }) => {
+export const MemberListItem:React.FC<Props> = ({ children, menuChildren }) => {
   return (
     <li style={{marginBottom: 24}}>
-      <img
-        src={member.avatar ? member.avatar : PLACEHOLDER}
-        style={{width: 40}}
-        alt="avatar" 
-      />
-			{member.name ? (
-          <>
-            <div>
-              <div>{member.name}</div>
-              <div>{member.email}</div>	
-            </div>
-            {member.role === "guest" && <div>ゲスト</div>}
-          </>
-				): (<div>{member.email}</div>)
-			}
-		  <Menu>{children}</Menu>
+      {children}
+		  {menuChildren && (<Menu>{menuChildren}</Menu>)}
     </li>
   )
 }
