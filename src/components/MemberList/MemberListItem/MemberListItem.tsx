@@ -8,7 +8,7 @@ type Props = {
 
 const PLACEHOLDER = "https://avatars.dicebear.com/api/initials/test.svg";
 
-export const MemberListItem:React.FC<Props> = ({ member }) => {
+export const MemberListItem:React.FC<Props> = ({ children, member }) => {
   return (
     <li style={{marginBottom: 24}}>
       <img
@@ -26,7 +26,7 @@ export const MemberListItem:React.FC<Props> = ({ member }) => {
           </>
 				): (<div>{member.email}</div>)
 			}
-		  <Menu member={member} />
+		  <Menu>{children}</Menu>
     </li>
   )
 }
